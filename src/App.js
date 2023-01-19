@@ -1,6 +1,6 @@
 
 import './App.css';
-import Greeting from './pure/greeting';
+// import Greeting from './pure/greeting';
 import GreetingF from './pure/greetingF';
 
 function App() {
