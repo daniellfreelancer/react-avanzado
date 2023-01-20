@@ -1,6 +1,7 @@
 
 import './App.css';
 import TaskListComponent from './components/container/Task_list';
+import Ejemplo1 from './hooks/Ejemplo1';
 
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
   return (
     <div className="App">
       <TaskListComponent/>
+
+      <Ejemplo1/>
     </div>
   );
 }
