@@ -9,7 +9,7 @@ function TaskComponent({ task }) {
       <h3>Descripcion: { task.description } </h3>
       <h4>Nivel: { task.level } </h4>
       <h5>
-        Esta tarea es: { task.completed ? 'COMPLETADA': ' PENDIENTE'} }
+        Esta tarea es: { task.completed ? 'COMPLETADA': ' PENDIENTE'}
       </h5>
     </div>
   );
