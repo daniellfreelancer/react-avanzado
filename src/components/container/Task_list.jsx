@@ -10,9 +10,9 @@ function TaskListComponent(props) {
     const defaultTask = new Task('Ejemplo', 'Descripcion por defecto', false, LEVELS.NORMAL)
 
 
-    const chageState = (id) => {
-        console.log("Cambiar estado de una task")
-    }
+    // const chageState = (id) => {
+    //     console.log("Cambiar estado de una task")
+    // }
 
 
   return (

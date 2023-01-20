@@ -3,7 +3,7 @@
  * useContext()
  */
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 /**
  *
@@ -11,11 +11,11 @@ import React, { useContext, useState } from "react";
  * que va a tener un valor que recibe desde el padre
  */
 
-const miContexto = React.createContext(null)
+const miContexto = React.createContext(null);
 const Componente1 = () => {
   //va a rellenarse con los datos del padre
 
-const state = useContext(miContexto)
+  const state = useContext(miContexto);
   return (
     <div>
       <h1>el token es: {state.token}</h1>
@@ -35,26 +35,35 @@ const Componente2 = () => {
 };
 
 export default function MiComponenteConContexto() {
-  const estadoInicial = {
-    token: "0000011122336648",
-    sesion: 1,
-  };
 
+
+    const [myToken, setMyToken] = useState(Math.floor(Math.random() * 16777215).toString(16) );
+
+    const estadoInicial = {
+        token: myToken,
+        sesion: 1,
+      };
   // creamos el estado del componente
   const [sesionData, setSesionData] = useState(estadoInicial);
+  
+
+
+  
 
   function actualizarSesion() {
+    
     setSesionData({
-      token: "jasndonasd",
-      sesion: sesionData.sesion + 1,
+        token: sesionData.token.split('').sort(() => 0.5 - Math.random()).join(''),
+        sesion: sesionData.sesion + 1,
     });
+    
   }
 
-  return <miContexto.Provider value={sesionData}>
 
-    <Componente1>
-
-    </Componente1>
-    <button onClick={actualizarSesion} >Actualizar</button>
-  </miContexto.Provider>;
+  return (
+    <miContexto.Provider value={sesionData}>
+      <Componente1></Componente1>
+      <button onClick={actualizarSesion}>Actualizar</button>
+    </miContexto.Provider>
+  );
 }
